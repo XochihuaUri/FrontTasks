@@ -24,19 +24,19 @@ class Pizza{
         );
     }
 
-    SetIngredients(ingredient){
-        setTimeout(function(){
-            console.log("Adding: " + ingredient)
-        },
-        1000
-        );
-        this.ingredients.push(ingredient);
-        setTimeout(function(){
-            console.log(ingredient + " was added")
-        },
-        1000
-        );
-    }
+    // SetIngredients(ingredient){
+    //     setTimeout(function(){
+    //         console.log("Adding: " + ingredient)
+    //     },
+    //     1000
+    //     );
+    //     this.ingredients.push(ingredient);
+    //     setTimeout(function(){
+    //         console.log(ingredient + " was added")
+    //     },
+    //     1000
+    //     );
+    // }
     
 
     // SettingIngredients(func, ingredient){
@@ -47,24 +47,24 @@ class Pizza{
     // }
 
 
-    // async SetIngredients(ingredient){
-    //     function addingIngredient(ingredient) {
-    //         return new Promise((resolved, rejected) => {
-    //             setTimeout(resolved, 1000, ("Adding " + ingredient));
-    //             });
-    //     }
+    async SetIngredients(ingredient){
+        function addingIngredient(ingredient) {
+            return new Promise((resolved, rejected) => {
+                setTimeout(resolved, 1000, ("Adding " + ingredient));
+                });
+        }
         
-    //     function ingredientAdded(ingredient) {
-    //         return new Promise((resolved, rejected) => {
-    //             setTimeout(resolved, 1000, (ingredient + " was added"));
-    //             });
-    //     }
-    //     let a = await addingIngredient(ingredient);
-    //     console.log(a);
-    //     this.ingredients.push(ingredient);
-    //     let b =  await ingredientAdded(ingredient);
-    //     console.log(b);
-    // }
+        function ingredientAdded(ingredient) {
+            return new Promise((resolved, rejected) => {
+                setTimeout(resolved, 1000, (ingredient + " was added"));
+                });
+        }
+        let a = await addingIngredient(ingredient);
+        console.log(a);
+        this.ingredients.push(ingredient);
+        let b =  await ingredientAdded(ingredient);
+        console.log(b);
+    }
 
     
 
@@ -74,9 +74,9 @@ class Pizza{
 }
 
 let pizza1 = new Pizza();
-pizza1.SetIngredients("Queso");
-pizza1.SetIngredients("Peperoni");
-pizza1.SetIngredients("Piña");
+await pizza1.SetIngredients("Queso");
+await pizza1.SetIngredients("Peperoni");
+await pizza1.SetIngredients("Piña");
 console.log(pizza1.GetIngredients());
 //pizza1.cook();
 

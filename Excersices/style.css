@@ -1,0 +1,154 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.ContenedorPadre{
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+}
+
+.first{
+    background-color: pink;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.second{
+    background-color: tomato;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.third{
+    background-color: yellow;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+.fourth{
+    background-color: #888;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.fbox{
+    width: 30%;
+    height: 40%;
+    background-color: green;
+}
+
+.sbox{
+    height: 80%;
+    width: 25%;
+    background-color: blue;
+}
+.aa{
+    height: 70%;
+    width: 80%;
+    background-color: royalblue;
+}
+
+.ab{
+    height: 20%;
+    width: 80%;
+    background-color: royalblue;
+}
+/* .ContenedorPadre{
+    margin: 0;
+    border: 0;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+}
+
+.first{
+    grid-row: 1/4;
+    grid-column: 1/2;
+    background-color: tomato;
+}
+
+.second{
+    grid-row: 1/3;
+    grid-column: 2/4;
+    background-color: beige;
+}
+
+.third{
+    grid-row: 3/4;
+    grid-column: 2/4;
+    background-color: aqua;
+} */
+
+/* .ContenedorPadre{
+    margin: 0;
+    border: 0;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto);
+}
+
+.first{
+    grid-row: 1/3;
+    grid-column: 1/2;
+    background-color: tomato;
+}
+
+.second{
+    grid-row: 3/5;
+    grid-column: 1/2;
+    background-color: beige;
+}
+ 
+.third{
+    grid-row: 1/5;
+    grid-column: 2/5;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+
+.boxesContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    background-color: white;
+    flex: 5;
+}
+.boxEnd{
+    width: 100%;
+    height: 100px;
+    flex: 1;
+    background-color: black;
+}
+a{
+    width: 20%;
+    height: 100%;
+    background-color: red;
+} */
+

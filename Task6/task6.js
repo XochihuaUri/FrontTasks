@@ -1,12 +1,12 @@
-// function PrintName(name){
-//     setTimeout(function(){
-//         console.log("The name received is: " + name);
-//     },
-//     5000
-//     );
-// }
+function PrintName(name){
+    setTimeout(function(){
+        console.log("The name received is: " + name);
+    },
+    5000
+    );
+}
 
-// PrintName("ASD");
+PrintName("ASD");
 
 function job(data) {
     return new Promise((resolved, rejected) => {

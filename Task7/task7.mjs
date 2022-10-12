@@ -78,7 +78,7 @@ await pizza1.SetIngredients("Queso");
 await pizza1.SetIngredients("Peperoni");
 await pizza1.SetIngredients("Piña");
 console.log(pizza1.GetIngredients());
-//pizza1.cook();
+await pizza1.cook();
 
 // class Pizza{
 //     cook = async function(){
