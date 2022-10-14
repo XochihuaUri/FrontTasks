@@ -1,0 +1,52 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+}
+.listItem{
+    width: 50%;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    font-size: 2rem;
+    background-color: rgb(0, 160, 160);
+    margin: 14px 0;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+.listItem:hover{
+    height: 75px;
+    width: 60%;
+    transition: width 0.4s, height 0.4s;
+    box-shadow: rgb(82, 255, 255) 0px 20px 30px -10px;
+    background-color: rgb(3, 186, 186);
+    
+}
+/* @keyframes myAnimation{
+    0%{
+        opacity: 1;
+        transform: rotateX(90deg);
+    }
+    50%{
+        opacity: 0.5;
+        transform: rotateX(0deg);
+    }
+    100%{
+        display: none;
+        opacity: 0;
+        transform: rotateX(90deg);
+    }
+} */
+
+.listItem:active{
+    /* animation-name: myAnimation;
+    animation-duration: 1400ms;
+    animation-fill-mode: forwards; */
+    display: none;
+}
