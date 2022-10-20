@@ -1,12 +1,15 @@
 import "./App.css";
-import List from "./List";
+import Finished from "./Finished";
+//import List from "./List";
+
+/* <h1 className="Title">List of boot campers</h1>
+      <List array={bootCampers}></List> */
 
 function App() {
-  let bootCampers = ["Xochi", "José", "Joaquin", "Esteban", "Edgar", "Diego"];
+  //let bootCampers = ["Xochi", "José", "Joaquin", "Esteban", "Edgar", "Diego"];
   return (
     <div className="App">
-      <h1 className="Title">List of boot campers</h1>
-      <List array={bootCampers}></List>
+      <Finished></Finished>
     </div>
   );
 }

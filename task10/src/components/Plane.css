@@ -1,0 +1,30 @@
+.PlaneCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    width: 280px;
+    min-width: 280px;
+    padding: 20px 0 0;
+    border-radius: 20px;
+    margin: 20px 10px;
+    border: solid 0.2px #ccc;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.PlaneImg{
+    height: 180px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.PlaneName{
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.PlanePrice{
+    margin: 0;
+    padding: 0;
+}

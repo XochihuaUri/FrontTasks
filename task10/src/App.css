@@ -1,0 +1,22 @@
+html{
+  text-align: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+
+}
+
+body{
+  text-align: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+
+}
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
