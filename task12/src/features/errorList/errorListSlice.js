@@ -12,7 +12,9 @@ export const counterSlice = createSlice({
       state.errors.push(action.payload);
     },
     deleteById: (state, action) => {
-      state.errors.splice(action.payload, 1);
+      state.errors = state.errors.filter(
+        (error) => error.id !== action.payload
+      );
     },
   },
 });

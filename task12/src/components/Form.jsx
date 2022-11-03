@@ -4,15 +4,13 @@ import { useDispatch } from "react-redux";
 import { addAnError } from "../features/errorList/errorListSlice";
 
 export default function Form() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
+  const uniqueId = () => Math.floor(Math.random() * Date.now());
   const dispatch = useDispatch();
   const onSubmit = (data) => console.log(data);
-  const onError = (errors) => dispatch(addAnError(errors));
+  const onError = (errors) =>
+    dispatch(addAnError({ ...errors, id: uniqueId() }));
 
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)} className="form">
