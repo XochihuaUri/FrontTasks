@@ -1,0 +1,10 @@
+.listUsers{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2% 2%;
+    background-color: #333;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}

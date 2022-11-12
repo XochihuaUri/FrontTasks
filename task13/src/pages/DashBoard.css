@@ -1,0 +1,25 @@
+.dashboard{
+    height: 100vh;
+    width: 100vw;
+    background-color: #333;
+    box-sizing: border-box;
+    margin:0;
+    padding: 2% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboardTitle{
+    color: white;
+    font-size: 3rem;
+}
+.principalContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2%;
+    box-sizing: border-box;
+}

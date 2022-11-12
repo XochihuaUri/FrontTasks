@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useRouteError } from "react-router-dom";
 import "./Error.css";
-import dog from "../img/cat.png";
+import cat from "../img/cat.png";
 
 export default function Error() {
   let error = useRouteError();
@@ -10,7 +10,7 @@ export default function Error() {
       <div className="errorTitle">
         {error.status} - {error.statusText}
       </div>
-      <img src={dog} alt="sloth" className="errorImg" />
+      <img src={cat} alt="cat" className="errorImg" />
       <Link
         to="/"
         style={{
