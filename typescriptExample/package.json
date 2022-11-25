@@ -1,0 +1,17 @@
+{
+  "name": "typescriptexample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/resta.ts",
+    "build": "tsc && node ./built/resta.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "ts-node": "^10.9.1"
+  }
+}

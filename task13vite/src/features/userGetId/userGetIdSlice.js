@@ -8,10 +8,8 @@ const initialState = {
 
 export const fetchUserById = createAsyncThunk(
   "userGetId/fetchUserById",
-  async (userId) => {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/users/" + userId
-    );
+  async (userId, url = "https://jsonplaceholder.typicode.com/users/") => {
+    const response = await axios.get(url + userId);
     return response.data;
   }
 );

@@ -8,11 +8,8 @@ const initialState = {
 
 export const fetchUserPost = createAsyncThunk(
   "userPost/fetchUserPost",
-  async (user) => {
-    const response = await axios.post(
-      "https://jsonplaceholder.typicode.com/users/",
-      user
-    );
+  async (user, url = "https://jsonplaceholder.typicode.com/users/") => {
+    const response = await axios.post(url, user);
     return response.data;
   }
 );

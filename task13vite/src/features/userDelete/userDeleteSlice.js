@@ -8,10 +8,8 @@ const initialState = {
 
 export const fetchUserDelete = createAsyncThunk(
   "userDelete/fetchUserDelete",
-  async (userId) => {
-    const response = await axios.delete(
-      "https://jsonplaceholder.typicode.com/users/" + userId
-    );
+  async (userId, url = "https://jsonplaceholder.typicode.com/users/") => {
+    const response = await axios.delete(url + userId);
     return response.data;
   }
 );
