@@ -25,7 +25,7 @@ export default function ArrayOfElements({ arrayOfElements }: Props) {
       >
         {array}
       </Stack>
-      <ButtonContain onClick={handleSort}>Sort</ButtonContain>
+      <ButtonContain onClick={handleSort} text={"Sort"} />
     </div>
   );
 }

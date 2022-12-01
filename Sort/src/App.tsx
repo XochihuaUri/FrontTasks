@@ -1,29 +1,29 @@
-import "./App.css";
-import React, { useState } from "react";
-import ArrayOfElements, { ElementObject } from "./components/ArrayOfElements";
-import RowOfArrays from "./components/RowOfArrays";
-import ButtonContain from "./components/ButtonContain";
-//import RowOfArrays from "./components/RowOfArrays";
-//import { mergeSort } from "./utils/MergeSort";
+// import "./App.css";
+// import React, { useState } from "react";
+// import ArrayOfElements, { ElementObject } from "./components/ArrayOfElements";
+// import RowOfArrays from "./components/RowOfArrays";
+// import ButtonContain from "./components/ButtonContain";
+// //import RowOfArrays from "./components/RowOfArrays";
+// //import { mergeSort } from "./utils/MergeSort";
 
-function App() {
-  const array = [
-    { content: 12, color: "info.main" },
-    { content: 31, color: "info.main" },
-    { content: 25, color: "info.main" },
-    { content: 27, color: "info.main" },
-    { content: 8, color: "info.main" },
-    { content: 2, color: "info.main" },
-  ];
+// function App() {
+//   const array = [
+//     { content: 12, color: "info.main" },
+//     { content: 31, color: "info.main" },
+//     { content: 25, color: "info.main" },
+//     { content: 27, color: "info.main" },
+//     { content: 8, color: "info.main" },
+//     { content: 2, color: "info.main" },
+//   ];
 
-  return (
-    <div className="App">
-      <ArrayOfElements arrayOfElements={array} />
-    </div>
-  );
-}
+//   return (
+//     <div className="App">
+//       <ArrayOfElements arrayOfElements={array} />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
 // const merge = (left: ElementObject[], right: ElementObject[]) => {
 //   let sortedArr = [];
@@ -72,3 +72,107 @@ export default App;
 //   //console.log("saliendo del merge sort");
 //   return merge(left, right);
 // };
+import { useState, useEffect } from "react";
+import "./App.css";
+import ListBlocks from "./components/ListBlocks";
+// Algorithms
+import mergeSort from "./utils/MergeSort";
+
+function App() {
+  // Generating shuffled array of 1 to len
+  const generateRandomArray = (len: any) => {
+    setCompleted(false);
+    setSorting(false);
+    setSortedIndex([]);
+
+    const randomArray = Array.from(Array(len + 1).keys()).slice(1);
+
+    for (let i = randomArray.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i - 1));
+      const temp = randomArray[i];
+
+      randomArray[i] = randomArray[randomIndex];
+      randomArray[randomIndex] = temp;
+    }
+
+    setBlocks(randomArray);
+  };
+
+  // States
+  const algo = "mergeSort";
+  const [len, setLength] = useState(15);
+  const [blocks, setBlocks] = useState([]);
+  const [sorting, setSorting] = useState(false);
+  const [completed, setCompleted] = useState(true);
+  const [speed, setSpeed] = useState(250);
+  const [compare, setCompare] = useState([]);
+  const [swap, setSwap] = useState([]);
+  const [sortedIndex, setSortedIndex] = useState([]);
+
+  // Generating random array every time the length is changed by th user
+  useEffect(() => {
+    generateRandomArray(len);
+  }, [len]);
+
+  // Sorting according to the algorithm
+  const handleSort = () => {
+    const sortAccOrder = (order: any) => {
+      (function loop(i) {
+        setTimeout(function () {
+          const [j, k, arr, index] = order[i];
+          setCompare([j, k]);
+          setSwap([]);
+
+          if (index !== null) {
+            setSortedIndex((prevState) => [...prevState, index]);
+          }
+
+          if (arr) {
+            setBlocks(arr);
+            if (j !== null || k != null) setSwap([j, k]);
+          }
+
+          if (++i < order.length) {
+            loop(i);
+          } else {
+            setSorting(false);
+            setCompleted(true);
+          }
+        }, speed);
+      })(0);
+    };
+
+    setSorting(true);
+
+    algo === "mergeSort"
+      ? sortAccOrder(mergeSort(blocks))
+      : (() => {
+          setSorting(false);
+          setCompleted(true);
+        })();
+  };
+
+  const handleBtn = () => {
+    generateRandomArray(20);
+  };
+
+  const handleLength = () => {
+    setLength(10);
+  };
+  //sorting | o completed se ponen en disable btns
+  return (
+    <div className="App">
+      <ListBlocks
+        blocks={blocks}
+        compare={sorting && compare}
+        swap={sorting && swap}
+        sorted={sortedIndex}
+      />
+      <button onClick={() => handleSort()}>Sort</button>
+      <button onClick={handleBtn}>Random</button>
+      <button onClick={() => handleLength()}>Length</button>
+    </div>
+  );
+}
+
+export default App;
