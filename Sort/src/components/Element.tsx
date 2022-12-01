@@ -7,12 +7,12 @@ export type color =
   | "text.disabled"
   | "warning.main"
   | "info.main";
-interface Props {
+export interface PropsElement {
   content: number;
   color: color;
 }
 
-export default function Element({ content, color }: Props) {
+export default function Element({ content, color }: PropsElement) {
   return (
     <Card
       sx={{
