@@ -16,13 +16,16 @@ export default function Element({ content, color }: PropsElement) {
   return (
     <Card
       sx={{
-        width: 60,
-        height: 60,
+        width: 130,
+        height: 48,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         bgcolor: `${color}`,
+        marginBottom: "20px",
+        color: "white",
       }}
+      data-testid="element"
     >
       <CardContent>
         <Typography variant="h5" component="div">

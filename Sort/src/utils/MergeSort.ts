@@ -1,54 +1,57 @@
 let order = [];
 
-const merge = (dupBlocks, l, mid, r) => {
-  let i = l,
-    j = mid + 1;
+const merge = (blocksCopy, start, mid, end) => {
+  let i = start;
+  let j = mid + 1;
 
   const arr = [];
 
-  while (i <= mid && j <= r) {
+  while (i <= mid && j <= end) {
     order.push([i, j, null, null]); // Compare i th and j th element
-    if (dupBlocks[i] <= dupBlocks[j]) {
-      arr.push(dupBlocks[i++]);
+    if (blocksCopy[i] <= blocksCopy[j]) {
+      arr.push(blocksCopy[i++]);
     } else {
-      arr.push(dupBlocks[j++]);
+      arr.push(blocksCopy[j++]);
     }
   }
 
   while (i <= mid) {
     order.push([i, null, null, null]);
-    arr.push(dupBlocks[i++]);
+    arr.push(blocksCopy[i++]);
   }
 
-  while (j <= r) {
+  while (j <= end) {
     order.push([null, j, null, null]);
-    arr.push(dupBlocks[j++]);
+    arr.push(blocksCopy[j++]);
   }
 
-  for (i = l; i <= r; i++) {
-    dupBlocks[i] = arr[i - l];
-    order.push([i, null, dupBlocks.slice(), null]);
+  for (i = start; i <= end; i++) {
+    blocksCopy[i] = arr[i - start];
+    order.push([i, null, blocksCopy.slice(), null]);
   }
 };
 
-const mergeSortHelper = (dupBlocks, l, r) => {
-  if (l >= r) return;
+const mergeSortHelper = (blocksCopy: number[], start: number, end: number) => {
+  if (start >= end) {
+    return;
+  } //returns if the array has one or less element
+  const mid = Math.floor((start + end) / 2); // gets the middle index
+  // console.log("doing the recursive");
 
-  const mid = Math.floor((l + r) / 2);
+  //the array will be divided in two
+  mergeSortHelper(blocksCopy, start, mid); //left side of the array
+  mergeSortHelper(blocksCopy, mid + 1, end); //right side of the array
 
-  mergeSortHelper(dupBlocks, l, mid);
-  mergeSortHelper(dupBlocks, mid + 1, r);
-
-  merge(dupBlocks, l, mid, r);
+  merge(blocksCopy, start, mid, end);
 };
 
-const mergeSort = (blocks) => {
+const mergeSort = (blocks: number[]) => {
   order = [];
-  const dupBlocks = blocks.slice(); // copying blocks array
+  const blocksCopy = blocks.slice(); // copying blocks array
 
-  mergeSortHelper(dupBlocks, 0, dupBlocks.length - 1);
+  mergeSortHelper(blocksCopy, 0, blocksCopy.length - 1);
 
-  for (let i = 0; i < dupBlocks.length; i++) {
+  for (let i = 0; i < blocksCopy.length; i++) {
     order.push([null, null, null, i]); // i th element will be in correct position
   }
 
