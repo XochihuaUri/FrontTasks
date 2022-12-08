@@ -1,0 +1,31 @@
+.card{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    border: solid 2px #aaa;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: 0.1s;
+}
+
+.card:hover{
+    background-color: aqua;
+    cursor: pointer;
+    height: 220px;
+    width: 220px;
+    animation-name: shaking;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }

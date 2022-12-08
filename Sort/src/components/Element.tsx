@@ -6,7 +6,8 @@ export type color =
   | "success.main"
   | "text.disabled"
   | "warning.main"
-  | "info.main";
+  | "info.main"
+  | "secondary.main";
 export interface PropsElement {
   content: number;
   color: color;

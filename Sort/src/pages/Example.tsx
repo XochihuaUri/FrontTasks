@@ -104,7 +104,7 @@ export default function Example({ arrayToSort, speed }: ExampleProps) {
             }}
           >
             {arrayToSort.map((element: number, index: number) => (
-              <Element content={element} color="info.main" key={index} />
+              <Element content={element} color="secondary.main" key={index} />
             ))}
           </Box>
         </Box>
@@ -181,12 +181,12 @@ export default function Example({ arrayToSort, speed }: ExampleProps) {
                 element.map((subElement: number, index: number) => {
                   <Element
                     content={subElement}
-                    color="info.main"
+                    color="success.main"
                     key={index}
                   />;
                 })
               ) : (
-                <Element content={element} color="info.main" key={index} />
+                <Element content={element} color="success.main" key={index} />
               )
             )}
           </Box>
@@ -202,7 +202,7 @@ export default function Example({ arrayToSort, speed }: ExampleProps) {
             }}
           >
             {mergeHistory.map((element: number, index: number) => (
-              <Element content={element} color="info.main" key={index} />
+              <Element content={element} color="warning.main" key={index} />
             ))}
           </Box>
         </Box>
